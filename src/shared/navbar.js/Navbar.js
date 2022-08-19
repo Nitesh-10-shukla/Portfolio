@@ -56,40 +56,42 @@ export default function NavBar() {
                         }`}
                     >
                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                            <li className="text-[#282828] hover:text-indigo-200">
+                            <li className="text-[#282828] hover:text-[#7bfbdb] font-Inter text-base font-semibold">
                                 <a href="">Home</a>
                             </li>
-                            <li className="text-[#282828] hover:text-indigo-200">
+                            <li className="text-[#282828] hover:text-[#7bfbdb] font-Inter text-base font-semibold">
                                 <a href="">Blog</a>
                             </li>
-                            <li className="text-[#282828] hover:text-indigo-200">
+                            <li className="text-[#282828] hover:text-[#7bfbdb] font-Inter text-base font-semibold">
                                 <a href="">About US</a>
                             </li>
-                            <li className="text-[#282828] hover:text-indigo-200">
+                            <li className="text-[#282828] hover:text-[#7bfbdb] font-Inter text-base font-semibold">
                                 <a href="">Contact US</a>
                             </li>
                         </ul>
 
                         <div className="mt-3 space-y-2 lg:hidden md:hidden sm:inline-block">
-                                       <a
-                        href=""
-                        className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-white shadow hover:bg-gray-100"
-                    >
-                        Let's Connect
-                    </a>
+                        <button className='py-1 px-[25px]	my-3 relative  group overflow-hidden font-medium bg-[#474747] text-[#FFFFFF] inline-block'>
+                  <span className='absolute bottom-0 left-0 flex h-full w-0 mb-0 transition-all duration-700 ease-out transform translate-x-0 bg-[#4A4F4F]  group-hover:w-full opacity-90'></span>
+                  <span className='relative group-hover:text-white text-base font-normal font-[Inter]  leading-[22px]'>
+                  Let's Connect
+                  </span>
+                </button>
+            
                 </div>
                     </div>
                 </div>
                 <div className="hidden space-x-2 md:inline-block">
-                    <a
-                        href=""
-                        className="px-4 py-2 text-white bg-gray-600 shadow hover:bg-gray-800"
-                    >
-                        Let's Connect
-                    </a>
+                <button className='py-2.5 px-[25px]	my-3 relative  group overflow-hidden font-medium bg-[#474747] text-[#FFFFFF] inline-block'>
+                  <span className='absolute bottom-0 left-0 flex h-full w-0 mb-0 transition-all duration-700 ease-out transform translate-x-0 bg-[#4A4F4F]  group-hover:w-full opacity-90'></span>
+                  <span className='relative group-hover:text-white text-base font-normal font-[Inter] leading-[22px]'>
+                  Let's Connect
+                  </span>
+                </button>
             
                 </div>
             </div>
         </nav>
     );
 }
+

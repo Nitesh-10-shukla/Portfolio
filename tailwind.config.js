@@ -5,7 +5,15 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      animation:{
+        'bounce': 'bounce 5s linear infinite'},
+    },
+    fontFamily: {
+      Gelasio: ['Gelasio', 'serif'],
+      Inter:['Inter', 'sans-serif']
+
+     },
     container: {
       padding: {
         DEFAULT: '1rem',

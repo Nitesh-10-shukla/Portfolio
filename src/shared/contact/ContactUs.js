@@ -1,20 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const ContactUs = () => {
+   const[user,setUser]=useState({name:'',email:'',number:'',message:''});
+   const[error,setError]=useState({});
+
+   const userData=(event)=>{
+      let{name,value}=event.target;
+      setError({...error,[name]:''})
+      setUser({...user,[name]:value})
+   }
+   const validateFields=(e)=>{
+      e.preventDefault()
+      let valid=true;
+      if(!user?.name.trim()){
+         error.name="Please enter your full name"
+         valid=false 
+      }
+      if(!user.email.trim()){
+         error.email="Please enter your email"
+         valid=false 
+
+      }
+       if(!user.number.trim()){
+         error.number="Please enter your number"
+         valid=false 
+
+       }
+       if(!user.message.trim()){
+         error.message="Please enter your message"
+         valid=false 
+       }
+       setError({...error})
+       return valid
+   }
+   console.log(error);
   return (
-    <div className='py-10'>
-        <h1 className='text-center xl:text-[40px] text-3xl font-bold'>Contact</h1>
+    <div className='py-10'> 
+        <h1 className="text-center xl:text-[40px] text-3xl font-bold font-Gelasio after:content:' '  after:block after:border-b-solid after:border-b-[5px] after:mt-2 after:mx-auto after:w-[100px] after:border-[#282828]">Contact</h1>
     
 <section class="bg-white py-20 lg:py-[120px] overflow-hidden relative z-10">
    <div class="container">
       <div class="flex flex-wrap lg:justify-between -mx-4">
-         <div class="w-full lg:w-1/2 xl:w-6/12 px-4">
+         <div class="w-full lg:w-1/2 xl:w-6/12 px-4" data-aos='fade-up'>
             <div class="max-w-[570px] mb-12 lg:mb-0">
-               <span class="block mb-4 text-base text-primary font-semibold">
+               {/* <span class="block mb-4 text-base text-primary font-semibold">
                Connect with me
-               </span>
+               </span> */}
                <h2
-                  class="
+                  className="
                   text-dark
                   mb-6
                   uppercase
@@ -23,16 +56,17 @@ const ContactUs = () => {
                   sm:text-[40px]
                   lg:text-[36px]
                   xl:text-[40px]
+                  font-Gelasio
                   "
                   >
                   GET IN TOUCH WITH ME
                </h2>
-               <p class="text-base text-body-color leading-relaxed mb-9 w-[450px]">
+               <p className="text-base text-body-color leading-relaxed mb-9 w-[450px] font-Inter">
                Want to get in touch? we'd love to hear from you,Here's how you can reach me.
                </p>
-               <div class="flex mb-8 max-w-[370px] w-full">
+               <div className="flex mb-8 max-w-[370px] w-full">
                   <div
-                     class="
+                     className="
                      max-w-[60px]
                      sm:max-w-[70px]
                      w-full
@@ -52,23 +86,23 @@ const ContactUs = () => {
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
-                        class="fill-current"
+                        className="fill-current"
                         >
                         <path
                            d="M21.8182 24H16.5584C15.3896 24 14.4156 23.0256 14.4156 21.8563V17.5688C14.4156 17.1401 14.0649 16.7893 13.6364 16.7893H10.4026C9.97403 16.7893 9.62338 17.1401 9.62338 17.5688V21.8173C9.62338 22.9866 8.64935 23.961 7.48052 23.961H2.14286C0.974026 23.961 0 22.9866 0 21.8173V8.21437C0 7.62972 0.311688 7.08404 0.818182 6.77223L11.1039 0.263094C11.6494 -0.0876979 12.3896 -0.0876979 12.9351 0.263094L23.2208 6.77223C23.7273 7.08404 24 7.62972 24 8.21437V21.7783C24 23.0256 23.026 24 21.8182 24ZM10.3636 15.4251H13.5974C14.7662 15.4251 15.7403 16.3995 15.7403 17.5688V21.8173C15.7403 22.246 16.0909 22.5968 16.5195 22.5968H21.8182C22.2468 22.5968 22.5974 22.246 22.5974 21.8173V8.25335C22.5974 8.13642 22.5195 8.01949 22.4416 7.94153L12.1948 1.4324C12.0779 1.35445 11.9221 1.35445 11.8442 1.4324L1.55844 7.94153C1.44156 8.01949 1.4026 8.13642 1.4026 8.25335V21.8563C1.4026 22.285 1.75325 22.6358 2.18182 22.6358H7.48052C7.90909 22.6358 8.25974 22.285 8.25974 21.8563V17.5688C8.22078 16.3995 9.19481 15.4251 10.3636 15.4251Z"
                            />
                      </svg>
                   </div>
-                  <div class="w-full">
-                     <h4 class="font-bold text-dark text-xl mb-1">Location</h4>
-                     <p class="text-base text-body-color">
+                  <div className="w-full">
+                     <h4 className="font-bold text-dark text-xl mb-1 font-Gelasio">Location</h4>
+                     <p className="text-base text-body-color font-Inter">
                        Viraj Khand-2 Gomti Nagar Lucknow , India
                      </p>
                   </div>
                </div>
-               <div class="flex mb-8 max-w-[370px] w-full">
+               <div className="flex mb-8 max-w-[370px] w-full" >
                   <div
-                     class="
+                     className="
                      max-w-[60px]
                      sm:max-w-[70px]
                      w-full
@@ -88,7 +122,7 @@ const ContactUs = () => {
                         width="24"
                         height="26"
                         viewBox="0 0 24 26"
-                        class="fill-current"
+                        className="fill-current"
                         >
                         <path
                            d="M22.6149 15.1386C22.5307 14.1704 21.7308 13.4968 20.7626 13.4968H2.82869C1.86042 13.4968 1.10265 14.2125 0.97636 15.1386L0.092295 23.9793C0.0501967 24.4845 0.21859 25.0317 0.555377 25.4106C0.892163 25.7895 1.39734 26 1.94462 26H21.6887C22.1939 26 22.6991 25.7895 23.078 25.4106C23.4148 25.0317 23.5832 24.5266 23.5411 23.9793L22.6149 15.1386ZM21.9413 24.4424C21.8992 24.4845 21.815 24.5687 21.6466 24.5687H1.94462C1.81833 24.5687 1.69203 24.4845 1.64993 24.4424C1.60783 24.4003 1.52364 24.3161 1.56574 24.1477L2.4498 15.2649C2.4498 15.0544 2.61819 14.9281 2.82869 14.9281H20.8047C21.0152 14.9281 21.1415 15.0544 21.1835 15.2649L22.0676 24.1477C22.0255 24.274 21.9834 24.4003 21.9413 24.4424Z"
@@ -101,14 +135,14 @@ const ContactUs = () => {
                            />
                      </svg>
                   </div>
-                  <div class="w-full">
-                     <h4 class="font-bold text-dark text-xl mb-1">Phone Number</h4>
-                     <p class="text-base text-body-color">7985503761</p>
+                  <div className="w-full">
+                     <h4 className="font-bold text-dark text-xl mb-1 font-Gelasio">Phone Number</h4>
+                     <p className="text-base text-body-color font-Inter">7985503761</p>
                   </div>
                </div>
-               <div class="flex mb-8 max-w-[370px] w-full">
+               <div className="flex mb-8 max-w-[370px] w-full">
                   <div
-                     class="
+                     className="
                      max-w-[60px]
                      sm:max-w-[70px]
                      w-full
@@ -128,30 +162,33 @@ const ContactUs = () => {
                         width="28"
                         height="19"
                         viewBox="0 0 28 19"
-                        class="fill-current"
+                        className="fill-current"
                         >
                         <path
                            d="M25.3636 0H2.63636C1.18182 0 0 1.16785 0 2.6052V16.3948C0 17.8322 1.18182 19 2.63636 19H25.3636C26.8182 19 28 17.8322 28 16.3948V2.6052C28 1.16785 26.8182 0 25.3636 0ZM25.3636 1.5721C25.5909 1.5721 25.7727 1.61702 25.9545 1.75177L14.6364 8.53428C14.2273 8.75886 13.7727 8.75886 13.3636 8.53428L2.04545 1.75177C2.22727 1.66194 2.40909 1.5721 2.63636 1.5721H25.3636ZM25.3636 17.383H2.63636C2.09091 17.383 1.59091 16.9338 1.59091 16.3499V3.32388L12.5 9.8818C12.9545 10.1513 13.4545 10.2861 13.9545 10.2861C14.4545 10.2861 14.9545 10.1513 15.4091 9.8818L26.3182 3.32388V16.3499C26.4091 16.9338 25.9091 17.383 25.3636 17.383Z"
                            />
                      </svg>
                   </div>
-                  <div class="w-full">
-                     <h4 class="font-bold text-dark text-xl mb-1">
+                  <div className="w-full">
+                     <h4 className="font-bold text-dark text-xl mb-1 font-Gelasio">
                         Email Address
                      </h4>
-                     <p class="text-base text-body-color">niteshshukla1696@gmail.com</p>
+                     <p className="text-base text-body-color font-Inter">niteshshukla1696@gmail.com</p>
                   </div>
                </div>
             </div>
          </div>
-         <div class="w-full lg:w-1/2 xl:w-5/12 px-4">
-            <div class="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg">
-               <form>
-                  <div class="mb-6">
+         <div className="w-full lg:w-1/2 xl:w-5/12 px-4" data-aos='fade-down'>
+            <div className="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg">
+               <form onSubmit={(e)=>{validateFields(e)}}>
+                  <div className="mb-6">
                      <input
                         type="text"
                         placeholder="Your Name"
-                        class="
+                        name="name"
+                        value={user?.name}
+                        onChange={(e)=>{userData(e)}}
+                        className="
                         w-full
                         rounded
                         py-3
@@ -163,12 +200,17 @@ const ContactUs = () => {
                         focus:border-primary
                         "
                         />
+                        <span className='px-2 text-red-600 '>{error.name && error.name}</span>
                   </div>
-                  <div class="mb-6">
+                  <div className="mb-6">
                      <input
                         type="email"
                         placeholder="Your Email"
-                        class="
+                        name='email'
+                        value={user?.email}
+                        onChange={(e)=>{userData(e)}}
+
+                        className="
                         w-full
                         rounded
                         py-3
@@ -180,12 +222,18 @@ const ContactUs = () => {
                         focus:border-primary
                         "
                         />
+                                                <span className='px-2 text-red-600 '>{error.email && error.email}</span>
+
                   </div>
-                  <div class="mb-6">
+                  <div className="mb-6">
                      <input
                         type="text"
                         placeholder="Your Phone"
-                        class="
+                        name='number'
+                        value={user?.number}
+                        onChange={(e)=>{userData(e)}}
+
+                        className="
                         w-full
                         rounded
                         py-3
@@ -197,12 +245,18 @@ const ContactUs = () => {
                         focus:border-primary
                         "
                         />
+                                                <span className='px-2 text-red-600 '>{error.number && error.number}</span>
+
                   </div>
-                  <div class="mb-6">
+                  <div className="mb-6">
                      <textarea
                         rows="6"
                         placeholder="Your Message"
-                        class="
+                        name='message'
+                        value={user?.message}
+                        onChange={(e)=>{userData(e)}}
+
+                        className="
                         w-full
                         rounded
                         py-3
@@ -214,12 +268,15 @@ const ContactUs = () => {
                         focus-visible:shadow-none
                         focus:border-primary
                         "
-                        ></textarea>
+
+></textarea>
+<span className='px-2 text-red-600 '>{error.message && error.message}</span>
+
                   </div>
                   <div>
-                     <button
+                     {/* <button
                         type="submit"
-                        class="
+                        className="
                         w-full
                         text-black
                         bg-primary
@@ -231,11 +288,17 @@ const ContactUs = () => {
                         "
                         >
                      Send Message
-                     </button>
+                     </button> */}
+                     <button className='py-2.5 px-[25px]	my-3 relative w-full  group overflow-hidden font-medium bg-[#474747] text-[#FFFFFF] inline-block'>
+                  <span className='absolute bottom-0 left-0 flex h-full w-0 mb-0 transition-all duration-700 ease-out transform translate-x-0 bg-[#4A4F4F]  group-hover:w-full opacity-90'></span>
+                  <span className='relative group-hover:text-white text-lg font-normal font-[Inter] leading-[22px]'>
+                     Send Message
+                  </span>
+                </button>
                   </div>
                </form>
                <div>
-                  <span class="absolute -top-10 -right-9 z-[-1]">
+                  <span className="absolute -top-10 -right-9 z-[-1]">
                      <svg
                         width="100"
                         height="100"
@@ -251,7 +314,7 @@ const ContactUs = () => {
                            />
                      </svg>
                   </span>
-                  <span class="absolute -right-10 top-[90px] z-[-1]">
+                  <span className="absolute -right-10 top-[90px] z-[-1]">
                      <svg
                         width="34"
                         height="134"
@@ -471,7 +534,7 @@ const ContactUs = () => {
                            />
                      </svg>
                   </span>
-                  <span class="absolute -left-7 -bottom-7 z-[-1]">
+                  <span className="absolute -left-7 -bottom-7 z-[-1]">
                      <svg
                         width="107"
                         height="134"

@@ -31,19 +31,22 @@ const Portfolio = () => {
      }
   return (
     <div className='py-7'>
-        <h1 className='text-center xl:text-[40px] text-3xl font-bold mt-5'>Projects</h1>
-        <p className='text-center text-xl py-2'>Some of my best projects</p>
-        <div className='container mx-auto py-12 pt-7 flex-wrap flex justify-center xl:gap-36 gap-5 items-center'>
+        <h1 className="text-center xl:text-[40px] text-3xl font-bold mt-5 font-Gelasio after:content:' '  after:block after:border-b-solid after:border-b-[5px] after:mt-2 after:mx-auto after:w-[140px] after:border-[#282828]">Projects</h1>
+        <p className='text-center text-xl py-6 font-Inter'>Some of my best projects</p>
+        <div className='container mx-auto py-12 xl:pt-7 pt-2 flex-wrap flex justify-center xl:gap-36 gap-x-5 gap-y-1 items-center'>
             {
                 Tab.map((item,index)=>(
-                    <button onClick={()=>filterList(item)} className="inline-block py-[5px] px-[25px]  text-lg font-semibold  capitalize  text-white bg-gray-800  hover:bg-gray-700 ">
-                    {item}
-                    </button>
-                    // <button key={index} className='text-xl font-bold  capitalize text-[#282828]  hover:text-[red]'   >{item}</button>
-                ))
+
+<button onClick={()=>filterList(item)}  className='py-2.5 px-[25px]	my-3 relative  group overflow-hidden font-medium bg-[#474747] text-[#FFFFFF] inline-block'>
+                  <span className='absolute bottom-0 left-0 flex h-full w-0 mb-0 transition-all duration-700 ease-out transform translate-x-0 bg-[#4A4F4F]  group-hover:w-full opacity-90'></span>
+                  <span className='relative group-hover:text-white text-lg font-normal font-[Inter] leading-[22px]'>
+                  {item}                  </span>
+                </button>
+
+                                    ))
             }
         </div>
-        <div className='container mx-auto flex xl:gap-0 gap-5 justify-center items-center flex-wrap'>
+        <div className='container mx-auto flex xl:gap-0 gap-5 justify-center items-center flex-wrap' data-aos='zoom-in'>
             {
                 data.map((item,index)=>(
                     

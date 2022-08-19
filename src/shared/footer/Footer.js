@@ -6,8 +6,8 @@ import {BsYoutube} from 'react-icons/bs';
 
 const Footer = () => {
   return (
-    <section className='py-10 bg-black'>
-        <div className='flex justify-center flex-wrap gap-16 items-center'>
+    <section className='py-10 bg-[#181A18]'>
+        <div className='flex justify-center flex-wrap gap-x-16 gap-y-10 items-center'>
             <FiFacebook className='rounded-full p-3 bg-white' size='50' color='black'/>
             <AiFillInstagram className='rounded-full p-3 bg-white' size='50' color='black'/>
             <BsYoutube className='rounded-full p-3 bg-white' size='50' color='black'/>
