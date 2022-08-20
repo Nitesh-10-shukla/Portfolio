@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import {NavLink} from 'react-router-dom'
 export default function NavBar() {
     const [navbar, setNavbar] = useState(false);
 
@@ -8,9 +8,9 @@ export default function NavBar() {
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                        <a href="">
+                        <NavLink to="/">
                             <h2 className="text-2xl font-bold text-[#282828]">Nitesh <span>Shukla</span></h2>
-                        </a>
+                        </NavLink>
                         <div className="md:hidden">
                             <button
                                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
@@ -57,16 +57,16 @@ export default function NavBar() {
                     >
                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                             <li className="text-[#282828] hover:text-[#7bfbdb] font-Inter text-base font-semibold">
-                                <a href="">Home</a>
+                                <NavLink to="/">Home</NavLink>
                             </li>
                             <li className="text-[#282828] hover:text-[#7bfbdb] font-Inter text-base font-semibold">
-                                <a href="">Blog</a>
+                                <NavLink to="blog">Blog</NavLink>
                             </li>
                             <li className="text-[#282828] hover:text-[#7bfbdb] font-Inter text-base font-semibold">
-                                <a href="">About US</a>
+                                <NavLink to="/">About US</NavLink>
                             </li>
                             <li className="text-[#282828] hover:text-[#7bfbdb] font-Inter text-base font-semibold">
-                                <a href="">Contact US</a>
+                                <NavLink to="/">Contact US</NavLink>
                             </li>
                         </ul>
 

@@ -1,5 +1,6 @@
+import axios from 'axios';
 import React, { useState } from 'react'
-
+// import { ContactData } from '../../utils';
 const ContactUs = () => {
    const[user,setUser]=useState({name:'',email:'',number:'',message:''});
    const[error,setError]=useState({});
@@ -10,7 +11,6 @@ const ContactUs = () => {
       setUser({...user,[name]:value})
    }
    const validateFields=(e)=>{
-      e.preventDefault()
       let valid=true;
       if(!user?.name.trim()){
          error.name="Please enter your full name"
@@ -33,16 +33,37 @@ const ContactUs = () => {
        setError({...error})
        return valid
    }
-   console.log(error);
+
+   const submitForm=async(e)=>{
+      e.preventDefault()
+      const data = {
+         name:user?.name,
+         email:user?.email,
+         mobile:user?.number,
+         message:user?.message
+      }
+      validateFields()
+      let vailddata =validateFields();
+      if(vailddata){
+         await axios.post('https://portfolio-backend-theta.vercel.app/api/contact',data).then((res)=>{
+            console.log(res.status);
+
+            if(res.status==200){
+               setUser({name:'',email:'',number:'',message:''})
+            }
+         })
+      }
+   }
+
   return (
     <div className='py-10'> 
         <h1 className="text-center xl:text-[40px] text-3xl font-bold font-Gelasio after:content:' '  after:block after:border-b-solid after:border-b-[5px] after:mt-2 after:mx-auto after:w-[100px] after:border-[#282828]">Contact</h1>
     
-<section class="bg-white py-20 lg:py-[120px] overflow-hidden relative z-10">
-   <div class="container">
-      <div class="flex flex-wrap lg:justify-between -mx-4">
-         <div class="w-full lg:w-1/2 xl:w-6/12 px-4" data-aos='fade-up'>
-            <div class="max-w-[570px] mb-12 lg:mb-0">
+<section className="bg-white py-20 lg:py-[120px] overflow-hidden relative z-10">
+   <div className="container">
+      <div className="flex flex-wrap lg:justify-between -mx-4">
+         <div className="w-full lg:w-1/2 xl:w-6/12 px-4" data-aos='fade-up'>
+            <div className="max-w-[570px] mb-12 lg:mb-0">
                {/* <span class="block mb-4 text-base text-primary font-semibold">
                Connect with me
                </span> */}
@@ -180,7 +201,7 @@ const ContactUs = () => {
          </div>
          <div className="w-full lg:w-1/2 xl:w-5/12 px-4" data-aos='fade-down'>
             <div className="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg">
-               <form onSubmit={(e)=>{validateFields(e)}}>
+               <form >
                   <div className="mb-6">
                      <input
                         type="text"
@@ -289,7 +310,7 @@ const ContactUs = () => {
                         >
                      Send Message
                      </button> */}
-                     <button className='py-2.5 px-[25px]	my-3 relative w-full  group overflow-hidden font-medium bg-[#474747] text-[#FFFFFF] inline-block'>
+                     <button onClick={(e)=>{submitForm(e)}} className='py-2.5 px-[25px]	my-3 relative w-full  group overflow-hidden font-medium bg-[#474747] text-[#FFFFFF] inline-block'>
                   <span className='absolute bottom-0 left-0 flex h-full w-0 mb-0 transition-all duration-700 ease-out transform translate-x-0 bg-[#4A4F4F]  group-hover:w-full opacity-90'></span>
                   <span className='relative group-hover:text-white text-lg font-normal font-[Inter] leading-[22px]'>
                      Send Message

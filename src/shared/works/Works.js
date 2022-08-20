@@ -42,7 +42,7 @@ const data=[
     },
     {
         id:"4",
-        title:'Responsive',
+        title:'User-Friendly',
         icon:<SiPagespeedinsights size={70}/>,
         description:'My layouts will work on any device, big or small.'
     }

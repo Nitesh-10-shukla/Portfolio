@@ -4,6 +4,8 @@ import './styles/style.css'
 import Home from './containers/Home';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import { Route, Routes } from 'react-router-dom';
+import Blog from './containers/blogs/Blog';
 
 function App() {
   useEffect(() => {
@@ -13,7 +15,10 @@ function App() {
   return (
     <div className='overflow-hidden'>
      <NavBar/>
-     <Home/>
+     <Routes>
+      <Route exact path='/' element={<Home/>}></Route>
+      <Route  path='/blog' element={<Blog/>}></Route>
+     </Routes>
     </div>
   );
 }
