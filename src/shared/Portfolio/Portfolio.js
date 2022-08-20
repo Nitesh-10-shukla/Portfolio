@@ -1,14 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import ReactIcon from '../../assets/DailyImg.png';
 import {AiOutlineLink,AiFillEye} from 'react-icons/ai'
-import times from '../../assets/timesImg.png';
-import shopping from '../../assets/EcommerceImg.png';
-import tt from '../../assets/GameImg.png';
-import devtrust from '../../assets/DevtrustImg.png';
-import ecommerce from '../../assets/ecommerce.jpg'
 import PortfolioModal from '../../attachments/modal/PortfoilioModal';
-
 import { getProjects } from '../../utils';
 const Portfolio = () => {
     const[project,setProject]=useState([])
@@ -22,7 +15,6 @@ const Portfolio = () => {
     const hideModal=()=>{
         setModal(false)
     }
-    console.log(data,"af");
     const filterList=(items)=>{
            let filter=project?.filter((item)=>item.category===items);
            if(items==="All"){
@@ -83,57 +75,57 @@ useEffect(()=>{
 export default Portfolio;
 
 const Tab = ['All','React','JavaScript','php & mysql']
-const Projects=[
-    {
-        id:'2',
-        image:times,
-        title:'TimesAscent',
-        description:'',
-        link:'',
-        category:'React'
-    },
-    {
-        id:'2',
-        image:ReactIcon,
-        title:'React Web App',
-        description:'',
-        link:'',
-        category:'React'
-    },
+// const Projects=[
+//     {
+//         id:'2',
+//         image:times,
+//         title:'TimesAscent',
+//         description:'',
+//         link:'',
+//         category:'React'
+//     },
+//     {
+//         id:'2',
+//         image:ReactIcon,
+//         title:'React Web App',
+//         description:'',
+//         link:'',
+//         category:'React'
+//     },
     
-    {
-        id:'3',
-        image:shopping,
-        title:'Shopping Cart',
-        description:'',
-        link:'',
-        category:'JavaScript'
-    },{
-        id:'4',
-        image:tt,
-        title:'Game App',
-        description:'',
-        link:'',
-        category:'JavaScript'
-    },
-    {
-        id:'5',
-        image:devtrust,
-        title:'Devtrust',
-        description:'React',
-        link:'',
-        category:'React'
-    },
-    {
-        id:'6',
-        image:ecommerce,
-        title:'Ecommerce website',
-        description:'',
-        link:'',
-        category:'php & mysql'
-    },
+//     {
+//         id:'3',
+//         image:shopping,
+//         title:'Shopping Cart',
+//         description:'',
+//         link:'',
+//         category:'JavaScript'
+//     },{
+//         id:'4',
+//         image:tt,
+//         title:'Game App',
+//         description:'',
+//         link:'',
+//         category:'JavaScript'
+//     },
+//     {
+//         id:'5',
+//         image:devtrust,
+//         title:'Devtrust',
+//         description:'React',
+//         link:'',
+//         category:'React'
+//     },
+//     {
+//         id:'6',
+//         image:ecommerce,
+//         title:'Ecommerce website',
+//         description:'',
+//         link:'',
+//         category:'php & mysql'
+//     },
     
-]
+// ]
 
 
 

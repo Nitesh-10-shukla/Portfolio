@@ -1,27 +1,12 @@
-import React,{useEffect,useRef,useState} from 'react';
-import useTypewriter from "react-typewriter-hook";
+import React from 'react';
+import Typewriter from 'typewriter-effect';
+import '../../App.css'
 import NBS from '../../assets/NBS.jpg'
 const About = () => {
     const info = [
         "Frontend Developer","Blogger","Youtuber"
        ];
-       let index = 0;
-       const [data, setData] = useState("Frontend Developer");
-       const intervalRef = useRef({});
-       const name = useTypewriter(data);
-       useEffect(
-         () => {
-           intervalRef.current = setInterval(() => {
-             index = index > 2 ? 0 : ++index;
-             setData(info[index]);
-           }, 4000);
-           return function clear() {
- 
-             clearInterval(intervalRef.current);
-           };
-         },
-         [data]
-       );      
+     
  
     return (
         <>
@@ -32,7 +17,14 @@ const About = () => {
                         <img className='xl:h-[500px] h-auto  shadow border-[16px] border-white xl:w-[400px] w-full object-cover' src={NBS} alt='img'/>
                     </div>
                     <div className='xl:py-1 md:py-1 py-4 xl:basis-1/2  basis-none ' data-aos='fade-left'>
-                        <h1 className='text-3xl font-semibold font-gl'>I'm Nitesh Shukla <span className='text-[#00FFFF] tracking-wide font-Gelasio'>{name}</span></h1>
+                    {/* <span className='text-[#00FFFF] tracking-wide font-Gelasio'> */}
+                        <h1 className='text-3xl font-semibold font-lg flex flex-col xl:flex-row md:flex-row flex-wrap justify-start items-center place-content-center place-items-center gap-2 text'>I'm Nitesh Shukla  <Typewriter style={{color:"red"}} className='text-[#00FFFF] tracking-wide font-Gelasio'
+  options={{
+    strings: info,
+    autoStart: true,
+    loop: true,
+  }}
+/></h1>
                         <p className='text-lg xl:w-[700px] xl:pt-14 md:pt-14 pt-5 w-auto text-justify font-normal xl:leading-7 md:leading-7 leading-10 font-[Inter] '>I'm a Front-End Developer from Lucknow(UP),India.
                             I love and enjoying build interactive websites that run across platforms & devices. I'm currently looking for opportunities. To get in touch mail me at-
 
