@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 import axios from 'axios';
 import React, { useState } from 'react';
 import PortfolioModal from '../../attachments/modal/PortfoilioModal';
@@ -66,6 +67,7 @@ const ContactUs = () => {
             console.log(res.status);
 
             if(res.status===200){
+
                openModal()
                setUser({name:'',email:'',number:'',message:''})
             }

@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import {AiOutlineLink,AiFillEye} from 'react-icons/ai'
-import { useLocation, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 // import PortfolioModal from '../../attachments/modal/PortfoilioModal';
 import { getProjects } from '../../utils';
 
 const Portfolio = () => {
     const[project,setProject]=useState([])
     const[data,setData]=useState([]);
-     const[detail,setDetail]=useState(false)
+    //  const[detail,setDetail]=useState(false)
    
     const filterList=(items)=>{
            let filter=project?.filter((item)=>item.category===items);
@@ -27,15 +27,12 @@ const fetchProject=async()=>{
     })
 }
 const navigate =useNavigate()
-const location =useLocation()
-console.log(location,"saf")
 
 const navigateProjects=()=>{
         navigate('/portfolio');
     
 
 }
-console.log(detail);
 useEffect(()=>{
     fetchProject()
 },[])
