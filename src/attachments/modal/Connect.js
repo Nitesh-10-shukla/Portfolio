@@ -1,6 +1,7 @@
+/* eslint-disable */ 
 import React,{useState} from "react";
 import axios from "axios";
-import mailIcon from '../../assets/mailIcon.png';
+// import mailIcon from '../../assets/mailIcon.png';
 import PortfolioModal from "./PortfoilioModal";
 import {GiCancel} from  'react-icons/gi'
 export default function Connect(props) {
