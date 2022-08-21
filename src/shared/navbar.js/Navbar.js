@@ -1,8 +1,19 @@
 import { useState } from "react";
-import {NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom';
+import Connect from "../../attachments/modal/Connect";
 export default function NavBar() {
     const [navbar, setNavbar] = useState(false);
+    const[modal,setModal]=useState(false);
 
+
+    const openModal=()=>{
+        setNavbar(!navbar)
+        setModal(true)
+    }
+    const hideModal=()=>{
+        setModal(false)
+    }
+    
     return (
         <nav className="w-full bg-white shadow fixed top-0 z-50">
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
@@ -55,23 +66,29 @@ export default function NavBar() {
                             navbar ? "block" : "hidden"
                         }`}
                     >
-                        <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+                        <ul className="items-center justify-center space-y-8 md:flex md:space-x-10 md:space-y-0">
                             <li className="text-[#282828] hover:text-[#7bfbdb] font-Inter text-base font-semibold">
-                                <NavLink to="/">Home</NavLink>
+                                <NavLink to="/"  className={({ isActive }) =>
+                          isActive ? 'text-[#7bfbfb] ' : ''
+                        } onClick={() => setNavbar(!navbar)}>Home</NavLink>
                             </li>
                             <li className="text-[#282828] hover:text-[#7bfbdb] font-Inter text-base font-semibold">
-                                <NavLink to="blog">Blog</NavLink>
+                                <NavLink to="blog"  className={({ isActive }) =>
+                          isActive ? 'text-[#7bfbfb]' : ''
+                        } onClick={() => setNavbar(!navbar)}>Blog</NavLink>
                             </li>
+                            {/* <li className="text-[#282828] hover:text-[#7bfbdb] font-Inter text-base font-semibold">
+                                <NavLink to="/" onClick={() =>{handleScroll()}}>About US</NavLink>
+                            </li> */}
                             <li className="text-[#282828] hover:text-[#7bfbdb] font-Inter text-base font-semibold">
-                                <NavLink to="/">About US</NavLink>
-                            </li>
-                            <li className="text-[#282828] hover:text-[#7bfbdb] font-Inter text-base font-semibold">
-                                <NavLink to="/">Contact US</NavLink>
+                                <NavLink to="/portfolio"  className={({ isActive }) =>
+                          isActive ? 'text-[#7bfbfb]' : ''
+                        } onClick={() => setNavbar(!navbar)}>Portfolio</NavLink>
                             </li>
                         </ul>
 
                         <div className="mt-3 space-y-2 lg:hidden md:hidden sm:inline-block">
-                        <button className='py-1 px-[25px]	my-3 relative  group overflow-hidden font-medium bg-[#474747] text-[#FFFFFF] inline-block'>
+                        <button onClick={()=>{openModal()}}  className='py-1 px-[25px] xl:w-auto md:w-auto w-full	my-3 relative  group overflow-hidden font-medium bg-[#474747] text-[#FFFFFF] inline-block'>
                   <span className='absolute bottom-0 left-0 flex h-full w-0 mb-0 transition-all duration-700 ease-out transform translate-x-0 bg-[#4A4F4F]  group-hover:w-full opacity-90'></span>
                   <span className='relative group-hover:text-white text-base font-normal font-[Inter]  leading-[22px]'>
                   Let's Connect
@@ -82,7 +99,7 @@ export default function NavBar() {
                     </div>
                 </div>
                 <div className="hidden space-x-2 md:inline-block">
-                <button className='py-2.5 px-[25px]	my-3 relative  group overflow-hidden font-medium bg-[#474747] text-[#FFFFFF] inline-block'>
+                <button onClick={()=>{openModal()}} className='py-2.5 px-[25px]	my-3 relative  group overflow-hidden font-medium bg-[#474747] text-[#FFFFFF] inline-block'>
                   <span className='absolute bottom-0 left-0 flex h-full w-0 mb-0 transition-all duration-700 ease-out transform translate-x-0 bg-[#4A4F4F]  group-hover:w-full opacity-90'></span>
                   <span className='relative group-hover:text-white text-base font-normal font-[Inter] leading-[22px]'>
                   Let's Connect
@@ -90,6 +107,7 @@ export default function NavBar() {
                 </button>
             
                 </div>
+                <Connect showfirstModal={modal} hidefirstModal={hideModal}/>
             </div>
         </nav>
     );

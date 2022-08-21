@@ -6,7 +6,8 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { Route, Routes } from 'react-router-dom';
 import Blog from './containers/blogs/Blog';
-
+import AllPortfolio from './containers/portfolio/AllPortfolio';
+import ScrollToTop from './ScrollToTop';
 function App() {
   useEffect(() => {
     Aos.init({ duration: 1000, delay: 200 });
@@ -15,9 +16,12 @@ function App() {
   return (
     <div className='overflow-hidden'>
      <NavBar/>
+     <ScrollToTop/>
      <Routes>
       <Route exact path='/' element={<Home/>}></Route>
       <Route  path='/blog' element={<Blog/>}></Route>
+      <Route  path='/portfolio' element={<AllPortfolio/>}></Route>
+
      </Routes>
     </div>
   );

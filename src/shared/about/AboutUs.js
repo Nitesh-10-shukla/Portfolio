@@ -10,7 +10,7 @@ const About = () => {
  
     return (
         <>
-            <div className='bg-[#f8f8f8] py-7'>
+            <div className='bg-[#f8f8f8] py-7' id={'about'}>
                 <h1 className="text-center xl:text-[40px] text-3xl font-bold my-5 font-Gelasio after:content:' '  after:block after:border-b-solid after:border-b-[5px] after:mt-2 after:mx-auto after:w-[160px] after:border-[#282828]">About Me</h1>
                 <div className='container mx-auto gap-10 flex items-start flex-wrap xl:flex-nowrap justify-between xl:py-10 md:py-10 py-5'>
                     <div className='xl:basis-1/2 basis-none' data-aos='fade-right'>

@@ -25,7 +25,7 @@ const data=[
     {
         id:"1",
         title:'Fast',
-        icon:<SiPagespeedinsights size={70} color='blue'/>,
+        icon:<SiPagespeedinsights size={70}/>,
         description:'Fast load times and lag free interaction, my highest priority.'
     },
     {

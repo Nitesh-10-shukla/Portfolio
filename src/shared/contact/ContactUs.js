@@ -1,16 +1,24 @@
 import axios from 'axios';
-import React, { useState } from 'react'
-// import { ContactData } from '../../utils';
+import React, { useState } from 'react';
+import PortfolioModal from '../../attachments/modal/PortfoilioModal';
 const ContactUs = () => {
    const[user,setUser]=useState({name:'',email:'',number:'',message:''});
    const[error,setError]=useState({});
-
+   const[modal,setModal]=useState(false);
+   const openModal=()=>{
+      setModal(true)
+  }
+  const hideModal=()=>{
+      setModal(false)
+  }
    const userData=(event)=>{
       let{name,value}=event.target;
       setError({...error,[name]:''})
       setUser({...user,[name]:value})
    }
    const validateFields=(e)=>{
+      var numbers = /^[0-9]+$/;
+      var emailval = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       let valid=true;
       if(!user?.name.trim()){
          error.name="Please enter your full name"
@@ -21,11 +29,20 @@ const ContactUs = () => {
          valid=false 
 
       }
+      else if(!user.email.match(emailval)){
+         error.email="Please enter valid email"
+         valid=false 
+      }
        if(!user.number.trim()){
          error.number="Please enter your number"
          valid=false 
 
        }
+        else if(user.number.length!==10 || !user.number.match(numbers)){
+         error.number="Please enter valid number"
+         valid=false 
+       }
+      
        if(!user.message.trim()){
          error.message="Please enter your message"
          valid=false 
@@ -49,6 +66,7 @@ const ContactUs = () => {
             console.log(res.status);
 
             if(res.status===200){
+               openModal()
                setUser({name:'',email:'',number:'',message:''})
             }
          })
@@ -56,7 +74,8 @@ const ContactUs = () => {
    }
 
   return (
-    <div className='py-10'> 
+    <div className='py-10' id="contact"> 
+    <PortfolioModal  showModal={modal} hideModal={hideModal}/>
         <h1 className="text-center xl:text-[40px] text-3xl font-bold font-Gelasio after:content:' '  after:block after:border-b-solid after:border-b-[5px] after:mt-2 after:mx-auto after:w-[100px] after:border-[#282828]">Contact</h1>
     
 <section className="bg-white py-20 lg:py-[120px] overflow-hidden relative z-10">

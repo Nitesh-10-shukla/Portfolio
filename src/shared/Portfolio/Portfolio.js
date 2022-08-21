@@ -1,20 +1,15 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import {AiOutlineLink,AiFillEye} from 'react-icons/ai'
-import PortfolioModal from '../../attachments/modal/PortfoilioModal';
+import { useLocation, useNavigate } from 'react-router-dom';
+// import PortfolioModal from '../../attachments/modal/PortfoilioModal';
 import { getProjects } from '../../utils';
+
 const Portfolio = () => {
     const[project,setProject]=useState([])
     const[data,setData]=useState([]);
-    const[modal,setModal]=useState(false);
-    const[detail,setDetail]=useState()
-    const openModal=(item)=>{
-        setModal(true)
-        setDetail(item)
-    }
-    const hideModal=()=>{
-        setModal(false)
-    }
+     const[detail,setDetail]=useState(false)
+   
     const filterList=(items)=>{
            let filter=project?.filter((item)=>item.category===items);
            if(items==="All"){
@@ -27,14 +22,27 @@ const Portfolio = () => {
 const fetchProject=async()=>{
     await getProjects().then((res)=>{
         setProject(res)
+        localStorage.setItem("project",JSON.stringify(res))
         setData(res)
     })
 }
+const navigate =useNavigate()
+const location =useLocation()
+console.log(location,"saf")
+
+const navigateProjects=()=>{
+        navigate('/portfolio');
+    
+
+}
+console.log(detail);
 useEffect(()=>{
     fetchProject()
 },[])
+
+
   return (
-    <div className='py-7'>
+    <div className='py-7' id='project'>
         <h1 className="text-center xl:text-[40px] text-3xl font-bold mt-5 font-Gelasio after:content:' '  after:block after:border-b-solid after:border-b-[5px] after:mt-2 after:mx-auto after:w-[140px] after:border-[#282828]">Projects</h1>
         <p className='text-center text-xl py-6 font-Inter'>Some of my best projects</p>
         <div className='container mx-auto py-12 xl:pt-7 pt-2 flex-wrap flex justify-center xl:gap-36 gap-x-5 gap-y-1 items-center'>
@@ -50,23 +58,30 @@ useEffect(()=>{
                                     ))
             }
         </div>
-        <div className='container mx-auto flex xl:gap-0 gap-5 justify-center items-center flex-wrap' data-aos='zoom-in'>
+        <div className='container mx-auto flex xl:gap-10 gap-5 justify-center items-center flex-wrap' >
             {
-                data.map((item,index)=>(
+                data.slice(0,3).map((item,index)=>(
                     
-                    <div key={index} className='group relative shadow-lg  flex flex-col justify-center items-center text-center md:w-[300px]  xl:w-[400px] h-auto'>
-                       <img src={item.image} className='xl:h-[300px] md:h-[300px] h-auto   xl:object-contain object-contain' alt='img'/> 
-                       
+                    <div data-aos='zoom-in' key={index} className='group relative shadow  flex flex-col justify-center items-center text-center md:w-[300px]  xl:w-[400px]'>
+                       <img src={item.image} className='xl:h-[200px] md:h-[200px] h-auto   xl:object-fill object-contain' alt='img'/> 
+                       <div className='p-5 py-7'>
+                       <h1 className="text-2xl text-start  text-{#282828} font-bold py-1">{item.title}</h1>
+                       <p className='text-lg text-start font-Inter font-normal text-[#828282]'>{item.description}</p>
+                       </div>
                        <div
             className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center backdrop-blur-[10px] opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
-            <h1 className="text-3xl  text-sky-500 font-medium py-2">{item.title}</h1>
-            <div className='flex gap-5 py-2'><div className=' bg-white flex items-center justify-center  w-[40px] h-[40px] rounded-full' onClick={()=>{openModal(item)}}><AiFillEye size='20' className='text-center'/></div><div className=' bg-white flex items-center justify-center  w-[40px] h-[40px] rounded-full'><AiOutlineLink size='20' className='text-center'/></div>
+            
+            <div className='flex gap-5 py-2'><div className=' bg-white flex items-center justify-center  w-[40px] h-[40px] rounded-full' ><AiFillEye size='20' className='text-center'/></div><div className=' bg-white flex items-center justify-center  w-[40px] h-[40px] rounded-full'><AiOutlineLink size='20' className='text-center'/></div>
 </div>        </div>
                     </div>
                 ))
             }
+
         </div>
-        <PortfolioModal data={detail} showModal={modal} hideModal={hideModal}/>
+    
+        <p onClick={()=>{navigateProjects()}} className='text-center text-[#00FFFF] text-xl pt-5'>View All</p>
+    
+        {/* <PortfolioModal data={detail} showModal={modal} hideModal={hideModal}/> */}
 
     </div>
   )
