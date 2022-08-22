@@ -24,7 +24,7 @@ export default function PortfolioModal(props) {
                   </button>
                 </div>
               <div className="xl:w-[350px] md:w-[350px] w-auto rounded overflow-hidden shadow-lg">
-                    <div className=" w-full"> <img className="h-[200px] w-full" src={mailIcon} alt="mail"/> </div>
+                    <div className=" w-full"> <img className="h-[200px] w-full" src={mailIcon} alt="mailbox"/> </div>
             <div classNamw="p-5">
                 <h2 className="text-center font-Gelasio font-bold text-xl ">Thank-You</h2>
                 <div class="flex justify-center my-5"><button  onClick={() => hideModal(false)}

@@ -103,7 +103,7 @@ const ContactUs = () => {
                   >
                   GET IN TOUCH WITH ME
                </h2>
-               <p className="text-base text-body-color leading-relaxed mb-9 w-[450px] font-Inter">
+               <p className="text-base text-body-color leading-relaxed mb-9 xl:w-[450px] w-auto font-Inter">
                Want to get in touch? we'd love to hear from you,Here's how you can reach me.
                </p>
                <div className="flex mb-8 max-w-[370px] w-full">

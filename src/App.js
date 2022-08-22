@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import Blog from './containers/blogs/Blog';
 import AllPortfolio from './containers/portfolio/AllPortfolio';
 import ScrollToTop from './ScrollToTop';
+import Footer from './shared/footer/Footer'
 function App() {
   useEffect(() => {
     Aos.init({ duration: 1000, delay: 200 });
@@ -23,6 +24,7 @@ function App() {
       <Route  path='/portfolio' element={<AllPortfolio/>}></Route>
 
      </Routes>
+     <Footer/>
     </div>
   );
 }
