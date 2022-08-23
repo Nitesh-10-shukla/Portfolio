@@ -42,7 +42,7 @@ useEffect(()=>{
     <div className='py-7' id='project'>
         <h1 className="text-center xl:text-[40px] text-3xl font-bold mt-5 font-Gelasio after:content:' '  after:block after:border-b-solid after:border-b-[5px] after:mt-2 after:mx-auto after:w-[140px] after:border-[#282828]">Projects</h1>
         <p className='text-center text-xl py-6 font-Inter'>Some of my best projects</p>
-        <div className='container mx-auto py-12 xl:pt-7 pt-2 flex-wrap flex justify-center xl:gap-36 gap-x-5 gap-y-1 items-center'>
+        <div className='container mx-auto py-12 xl:pt-7 pt-2 xl:flex-nowrap flex-wrap flex justify-center xl:gap-36 gap-x-5 gap-y-1 items-center'>
             {
                 Tab.map((item,index)=>(
 

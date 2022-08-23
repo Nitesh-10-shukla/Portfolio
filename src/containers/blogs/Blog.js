@@ -28,7 +28,7 @@ const Blog = () => {
                 </form>
 
             </div>
-            <div className='flex  justify-between flex-wrap gap-y-5'>
+            <div className='flex  justify-between  xl:flex-nowrap flex-wrap gap-5'>
                 {
                     data?.map((item) => {
                         return <BlogCard blogs={item} />
