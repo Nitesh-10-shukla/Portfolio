@@ -2,7 +2,7 @@
 import React,{useState} from "react";
 import axios from "axios";
 // import mailIcon from '../../assets/mailIcon.png';
-import PortfolioModal from "./PortfoilioModal";
+import SuccessModal from "./SuccessModal";
 import {GiCancel} from  'react-icons/gi'
 export default function Connect(props) {
     const[user,setUser]=useState({name:'',email:'',number:'',message:''});
@@ -68,7 +68,7 @@ export default function Connect(props) {
         let vailddata =validateFields();
         if(vailddata){
            await axios.post('https://portfolio-backend-theta.vercel.app/api/contact',data).then((res)=>{
-              console.log(res.status);
+              // console.log(res.status);
   
               if(res.status===200){
                 hidefirstModal()
@@ -82,10 +82,10 @@ export default function Connect(props) {
            })
         }
      }
-  console.log(modal);
+  // console.log(modal);
   return (
     <>
-                    <PortfolioModal  showModal={modal} hideModal={hideModal}/>
+                    <SuccessModal  showModal={modal} hideModal={hideModal}/>
 
       {showfirstModal ? (
         <>
@@ -93,8 +93,8 @@ export default function Connect(props) {
             className="justify-center items-center flex overflow-x-hidden overflow-y-hidden fixed inset-0 z-50 outline-none focus:outline-none"
           >
 
-            <div className="relative w-auto my-6 mt-20 mx-2 max-w-full">
-              <div className="border-0  shadow-lg relative flex flex-col xl:w-[500px] md:w-[400px] w-full xl:h-auto h-[450px] overflow-y-scroll bg-white outline-none focus:outline-none">
+            <div className="relative  my-6 mt-20 mx-2 xl:w-auto md:w-auto sm:w-full max-w-full">
+              <div className="border-0  shadow-lg relative flex flex-col xl:w-[500px] md:w-[400px] w-full xl:h-auto h-[450px] overflow-auto bg-white outline-none focus:outline-none">
                 <div className="flex items-start justify-end px-2 py-2 ">
                  
                   <button
@@ -106,7 +106,7 @@ export default function Connect(props) {
                     </span>
                   </button>
                 </div>
-                <div className="w-full p-5">
+                <div className="w-auto p-5">
                 <form >
                   <div className="mb-6">
                      <input

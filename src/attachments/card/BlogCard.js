@@ -18,7 +18,7 @@ const BlogCard = (props) => {
     let {blogs} =props
     // console.log(blogs);
   return (
-    <div className='shadow bg-white w-full'>
+    <div className='shadow bg-white xl:w-[420px] w-auto'>
         <img className='xl:h-[230px] md:h-[220px] h-auto w-full' src={blogs?.image} alt='img'/>
         <div className='p-5'>
         <h1 className='text-xl font-bold font-Gelasio pb-2'>{blogs?.title}</h1>

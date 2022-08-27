@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useState} from 'react';
 import NavBar from './shared/navbar.js/Navbar';
 import './styles/style.css'
 import Home from './containers/Home';
@@ -9,22 +9,38 @@ import Blog from './containers/blogs/Blog';
 import AllPortfolio from './containers/portfolio/AllPortfolio';
 import ScrollToTop from './ScrollToTop';
 import Footer from './shared/footer/Footer'
+import Loader from './shared/loader/Loader';
 function App() {
   useEffect(() => {
     Aos.init({ duration: 1000, delay: 200 });
   }, []);
 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, [])
+
   return (
     <div className='overflow-hidden'>
-     <NavBar/>
+      {
+      (!loading)?
+      <>     <NavBar/>
      <ScrollToTop/>
+     
      <Routes>
       <Route exact path='/' element={<Home/>}></Route>
       <Route  path='/blog' element={<Blog/>}></Route>
       <Route  path='/portfolio' element={<AllPortfolio/>}></Route>
 
      </Routes>
-     <Footer/>
+
+     <Footer/></>
+
+ :<Loader/>
+     }
     </div>
   );
 }

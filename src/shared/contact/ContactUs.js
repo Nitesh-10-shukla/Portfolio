@@ -1,7 +1,7 @@
 /* eslint-disable */ 
 import axios from 'axios';
 import React, { useState } from 'react';
-import PortfolioModal from '../../attachments/modal/PortfoilioModal';
+import SuccessModal from '../../attachments/modal/SuccessModal';
 const ContactUs = () => {
    const[user,setUser]=useState({name:'',email:'',number:'',message:''});
    const[error,setError]=useState({});
@@ -77,7 +77,7 @@ const ContactUs = () => {
 
   return (
     <div className='py-10' id="contact"> 
-    <PortfolioModal  showModal={modal} hideModal={hideModal}/>
+    <SuccessModal  showModal={modal} hideModal={hideModal}/>
         <h1 className="text-center xl:text-[40px] text-3xl font-bold font-Gelasio after:content:' '  after:block after:border-b-solid after:border-b-[5px] after:mt-2 after:mx-auto after:w-[100px] after:border-[#282828]">Contact</h1>
     
 <section className="bg-white py-20 lg:py-[120px] overflow-hidden relative z-10">

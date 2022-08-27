@@ -20,8 +20,8 @@ const Skill = () => {
       ))}</div>
       <div className='xl:basis-1/2 basis-none xl:p-4 px-0' data-aos='fade-left'>
         <h1 className='xl:text-3xl md:text-xl text-xl font-bold leading-7 pb-2 font-Gelasio'>My creative skills and experience-</h1>
-        <p className='text-lg font-normal tracking-normal leading-7 text-justify font-Inter pt-5'>I'am Full-Stack web developer, I had practical skills with interesting technology like HTML5, CSS3, ES6, Python, Django, React Js, Node Js and MongoDB . I have written all my skills here , for more information click below.</p>
-        <button>Read More</button>
+        <p className='text-lg font-normal tracking-normal leading-7 text-justify font-Inter pt-5'>I'am Frontend web developer, I had practical skills with interesting technology like HTML5, CSS3, ES6, React Js, Node Js, MongoDB and SQL. I have written all my skills here </p>
+        {/* <button>Read More</button> */}
       </div>
       </div>
     </section>
