@@ -10,6 +10,7 @@ import AllPortfolio from './containers/portfolio/AllPortfolio';
 import ScrollToTop from './ScrollToTop';
 import Footer from './shared/footer/Footer'
 import Loader from './shared/loader/Loader';
+import NotFound from './attachments/error/NotFound';
 function App() {
   useEffect(() => {
     Aos.init({ duration: 1000, delay: 200 });
@@ -34,6 +35,7 @@ function App() {
       <Route exact path='/' element={<Home/>}></Route>
       <Route  path='/blog' element={<Blog/>}></Route>
       <Route  path='/portfolio' element={<AllPortfolio/>}></Route>
+      <Route  path='*' element={<NotFound/>}></Route>
 
      </Routes>
 

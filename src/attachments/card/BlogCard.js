@@ -8,8 +8,8 @@ const ReadMore = ({ children }) => {
     return (
       <p className="text">
         {isReadMore ? text.slice(0, 250) : text}
-        <span onClick={toggleReadMore} className="text-base text-[#828282] font-Inter font-normal leading-7 text-justify">
-          {isReadMore ? <span className='text-red-600'>...read more </span> : <span className='text-red-600'>show less</span>}
+        <span onClick={toggleReadMore} className=" cursor-pointer text-base text-[#828282] font-Inter font-normal leading-7 text-justify">
+          {isReadMore ? <span className='text-red-600'>...read more </span> : <span className='text-red-600 cursor-pointer'>show less</span>}
         </span>
       </p>
     );

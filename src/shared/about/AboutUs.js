@@ -1,13 +1,14 @@
 import React from 'react';
 import Typewriter from 'typewriter-effect';
-import '../../App.css'
-import NBS from '../../assets/NBS.jpg'
+import '../../App.css';
+import NBS from '../../assets/NBS.jpg';
+import { Link } from 'react-router-dom';
+import Resume from '../../assets/Resume.pdf'
 const About = () => {
     const info = [
         "Frontend Developer","Blogger","Youtuber"
        ];
-     
- 
+    
     return (
         <>
             <div className='bg-[#f8f8f8] py-7' id={'about'}>
@@ -28,13 +29,13 @@ const About = () => {
                         <p className='text-lg xl:w-[700px] xl:pt-14 md:pt-14 pt-5 w-auto text-justify font-normal xl:leading-7 md:leading-7 leading-10 font-[Inter] '>I'm a Front-End Developer from Lucknow(UP),India.
                             I love and enjoying build interactive websites that run across platforms & devices. I'm currently looking for opportunities. To get in touch mail me at-
 
-                            <br /><span className='text-semibold  text-[#828282]'>niteshshukla1696@gmail.com</span>
+                            <br /><span className='text-semibold cursor-pointer text-[#828282]'  onClick={() => window.location = 'mailto:niteshshukla1696@gmail.com'}>niteshshukla1696@gmail.com</span>
                         </p>
                         <div className='xl:my-10 my-3 mt-10'>
                         <button className='py-2.5 px-[25px]	my-3 relative  group overflow-hidden font-medium bg-[#474747] text-[#FFFFFF] inline-block'>
                   <span className='absolute bottom-0 left-0 flex h-full w-0 mb-0 transition-all duration-700 ease-out transform translate-x-0 bg-[#4A4F4F]  group-hover:w-full opacity-90'></span>
                   <span className='relative group-hover:text-white text-lg font-normal font-[Inter] leading-[22px]'>
-                    Download CV
+                  <Link to={Resume} target="_blank" download>Download CV</Link> 
                   </span>
                 </button>
                         </div>

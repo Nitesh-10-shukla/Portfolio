@@ -1,7 +1,8 @@
 import React from 'react'
 import header1 from '../../assets/header2.svg';
 import Typewriter from 'typewriter-effect';
-
+import Resume from '../../assets/Resume.pdf'
+import { Link } from 'react-router-dom';
 const Header = () => {
     const info = [
        "I am a Frontend Developer","I am a Blogger","I am a Youtuber"
@@ -22,7 +23,7 @@ const Header = () => {
                     <button className='py-2.5 px-[25px]	my-3 relative  group overflow-hidden font-medium bg-[#474747] text-[#FFFFFF] inline-block'>
                   <span className='absolute bottom-0 left-0 flex h-full w-0 mb-0 transition-all duration-700 ease-out transform translate-x-0 bg-[#4A4F4F]  group-hover:w-full opacity-90'></span>
                   <span className='relative group-hover:text-white text-lg font-normal font-[Inter] leading-[22px]'>
-                    Download CV
+                   <Link to={Resume} target="_blank" download>Download CV</Link> 
                   </span>
                 </button>
                         </div>

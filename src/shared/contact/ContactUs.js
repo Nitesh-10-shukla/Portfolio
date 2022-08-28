@@ -215,7 +215,8 @@ const ContactUs = () => {
                      <h4 className="font-bold text-dark text-xl mb-1 font-Gelasio">
                         Email Address
                      </h4>
-                     <p className="text-base text-body-color font-Inter">niteshshukla1696@gmail.com</p>
+                     <p className="text-base text-body-color font-Inter cursor-pointer" onClick={() => window.location = 'mailto:niteshshukla1696@gmail.com'}>
+niteshshukla1696@gmail.com</p>
                   </div>
                </div>
             </div>
