@@ -93,7 +93,7 @@ export default function Connect(props) {
             className="justify-center items-center flex overflow-x-hidden overflow-y-hidden fixed inset-0 z-50 outline-none focus:outline-none"
           >
 
-            <div className="relative  my-6 mt-20 mx-2 xl:w-auto md:w-auto sm:w-full max-w-full">
+            <div className="relative  my-6 mt-20 mx-2 xl:w-auto md:w-auto w-full max-w-full">
               <div className="border-0  shadow-lg relative flex flex-col xl:w-[500px] md:w-[400px] w-full xl:h-auto h-[450px] overflow-auto bg-white outline-none focus:outline-none">
                 <div className="flex items-start justify-end px-2 py-2 ">
                  

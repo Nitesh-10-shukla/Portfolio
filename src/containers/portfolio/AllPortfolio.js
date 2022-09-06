@@ -28,7 +28,7 @@ const AllPortfolio = () => {
                        <img src={item.image} className='xl:h-[200px] md:h-[200px] h-auto   xl:object-fill object-contain' alt='img'/> 
                        <div className='p-5 py-7'>
                        <h1 className="text-2xl text-start  text-{#282828} font-bold py-1">{item.title}</h1>
-                       <p className='text-lg text-start font-Inter font-normal text-[#828282]'>{item.description}</p>
+                       <p className='text-lg text-start font-Inter font-normal text-[#828282] line-clamp-3'>{item.description}</p>
                        </div>
                        <div
             className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center backdrop-blur-[10px] opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">

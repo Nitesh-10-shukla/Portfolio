@@ -12,7 +12,7 @@ export default function ProjectModal(props) {
           <div
             className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
           >
-            <div data-aos='zoom-in' className=" relative w-auto my-6 mx-2 max-w-7xl">
+            <div data-aos='zoom-in' className=" relative w-auto my-6  mx-2 overflow-auto max-w-2xl">
               <div className="border-0  shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <div className="flex items-start justify-end px-2 py-2 ">
                  
@@ -26,7 +26,7 @@ export default function ProjectModal(props) {
                   </button>
                 </div>
                 <div   className='group relative shadow p-5 flex flex-col justify-center items-center text-center w-full'>
-                       <img src={data.image} className='xl:h-[200px] md:h-[200px] h-auto   xl:object-fill object-contain' alt='img'/> 
+                       <img src={data.image} className='xl:h-[200px] md:h-[200px] h-auto w-full   xl:object-cover object-center object-contain' alt='img'/> 
                        <div className='p-5 py-7'>
                        <h1 className="text-2xl text-start  text-{#282828} font-bold py-1">{data.title}</h1>
                        <p className='text-lg text-start font-Inter font-normal text-[#828282]'>{data.description}</p>
