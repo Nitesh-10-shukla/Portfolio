@@ -25,7 +25,7 @@ const Portfolio = () => {
       
     },[project])
     const filterList=(items)=>{
-           let filter=project?.filter((item)=>item.category===items);
+           let filter=project?.filter((item)=>item.category.toLowerCase()===items.toLowerCase());
            setActive(items)
            if(items==="All"){
             setData(project)
@@ -55,6 +55,7 @@ useEffect(()=>{
 const goToApplication=(url)=>{
         window.open(url, '_blank')
     }
+    console.log(project,"s");
   return (
       
         <div className='py-7' id='project'>
