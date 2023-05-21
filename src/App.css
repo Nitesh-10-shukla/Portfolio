@@ -41,3 +41,13 @@
 .text div{
   color: #00FFFF;
 }
+.slick-slider .slick-slide {
+  padding: 5px 10px;
+}
+.slick-next:before, .slick-prev:before {
+  font-size: 20px;
+  border-color: transparent transparent #fff #fff;
+  box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 50px;
+  color: black;
+}

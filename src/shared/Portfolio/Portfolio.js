@@ -4,6 +4,9 @@ import {AiOutlineLink,AiFillEye} from 'react-icons/ai'
 import {  useNavigate } from 'react-router-dom';
 import { getProjects } from '../../utils';
 import ProjectModal from '../../attachments/modal/ProjectModal'
+import CardScelaton from '../../common/CardScelaton';
+import Slider from "react-slick";
+
 const Portfolio = () => {
     const[project,setProject]=useState([])
     const[data,setData]=useState([]);
@@ -25,7 +28,7 @@ const Portfolio = () => {
       
     },[project])
     const filterList=(items)=>{
-           let filter=project?.filter((item)=>item.category.toLowerCase()===items.toLowerCase());
+           let filter=project?.filter((item)=>item?.category?.toLowerCase()===items?.toLowerCase());
            setActive(items)
            if(items==="All"){
             setData(project)
@@ -55,13 +58,13 @@ useEffect(()=>{
 const goToApplication=(url)=>{
         window.open(url, '_blank')
     }
-    console.log(project,"s");
   return (
       
         <div className='py-7' id='project'>
         <h1 className="text-center xl:text-[40px] text-3xl font-bold mt-5 font-Gelasio after:content:' '  after:block after:border-b-solid after:border-b-[5px] after:mt-2 after:mx-auto after:w-[140px] after:border-[#282828]">Projects</h1>
         <p className='text-center text-xl py-6 pb-3 font-Inter'>Some of my best projects</p>
         <div className='container mx-auto py-12 xl:pt-7 pt-2 xl:flex-nowrap flex-wrap flex justify-center xl:gap-12 gap-x-1 gap-y-1 items-center'>
+           
             {
                 Tab.map((item,index)=>(
 
@@ -74,10 +77,11 @@ const goToApplication=(url)=>{
                                     ))
             }
         </div>
-        <div className='container mx-auto flex xl:gap-10 gap-5 justify-center items-center xl:flex-nowrap md:flex-nowrap flex-wrap' >
+        <div className='container mx-auto ' >
+        <Slider {...settings}>
             {
                 (!loader)?
-                data.slice(0,3).map((item,index)=>(
+                data.map((item,index)=>(
                     
                     <div  key={index} className='group p-5 relative shadow  flex flex-col justify-center items-center text-center md:w-[300px]  xl:w-[400px]'>
                        <img src={item.image} className='xl:h-[200px] md:h-[200px] h-auto   xl:object-fill object-contain' alt='img'/> 
@@ -93,22 +97,13 @@ const goToApplication=(url)=>{
                     </div>
                 ))
                 :
-                ([...Array(3)]).map((item,index)=>(
+                ([...Array(3)]).map((item)=>(
                     
-<div role="status" key={index} className="p-4 w-full h-[430px] rounded border border-gray-200 shadow animate-pulse md:p-6 dark:border-gray-700">
-    <div className="flex justify-center items-center mb-4 h-48 bg-gray-300 rounded dark:bg-gray-700">
-        <svg className="w-full h-16 text-gray-200 dark:text-gray-600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512"><path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"></path></svg>
-    </div>
-    <div className="h-2.5 mt-16 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
-    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-    
-    <span className="sr-only">Loading...</span>
-</div>
-
-                ))
-            }
+                    <CardScelaton/>
+                     
+                                     )) 
+}
+</Slider>
 
         </div>
     
@@ -123,58 +118,64 @@ const goToApplication=(url)=>{
 export default Portfolio;
 
 const Tab = ['All','React','JavaScript','php & mysql']
-// const Projects=[
-//     {
-//         id:'2',
-//         image:times,
-//         title:'TimesAscent',
-//         description:'',
-//         link:'',
-//         category:'React'
-//     },
-//     {
-//         id:'2',
-//         image:ReactIcon,
-//         title:'React Web App',
-//         description:'',
-//         link:'',
-//         category:'React'
-//     },
-    
-//     {
-//         id:'3',
-//         image:shopping,
-//         title:'Shopping Cart',
-//         description:'',
-//         link:'',
-//         category:'JavaScript'
-//     },{
-//         id:'4',
-//         image:tt,
-//         title:'Game App',
-//         description:'',
-//         link:'',
-//         category:'JavaScript'
-//     },
-//     {
-//         id:'5',
-//         image:devtrust,
-//         title:'Devtrust',
-//         description:'React',
-//         link:'',
-//         category:'React'
-//     },
-//     {
-//         id:'6',
-//         image:ecommerce,
-//         title:'Ecommerce website',
-//         description:'',
-//         link:'',
-//         category:'php & mysql'
-//     },
-    
-// ]
+var settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
 
 
 
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block"}}
+        onClick={onClick}
 
+      />
+    );
+  }
+  
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block"}}
+        onClick={onClick}
+      />
+    );
+  }
