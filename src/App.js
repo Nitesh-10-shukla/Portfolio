@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from './shared/navbar.js/Navbar';
 import './styles/style.css'
 import Home from './containers/Home';
@@ -11,6 +11,7 @@ import ScrollToTop from './ScrollToTop';
 import Footer from './shared/footer/Footer'
 import Loader from './shared/loader/Loader';
 import NotFound from './attachments/error/NotFound';
+import GlobalContextProvider from './context/GlobalContextProvider';
 function App() {
   useEffect(() => {
     Aos.init({ duration: 1000, delay: 200 });
@@ -26,24 +27,27 @@ function App() {
 
   return (
     <div className='overflow-hidden'>
-      {
-      (!loading)?
-      <>     <NavBar/>
-     <ScrollToTop/>
-     
-     <Routes>
-      <Route exact path='/' element={<Home/>}></Route>
-      <Route  path='/blog' element={<Blog/>}></Route>
-      <Route  path='/portfolio' element={<AllPortfolio/>}></Route>
-      <Route  path='*' element={<NotFound/>}></Route>
+      <GlobalContextProvider>
+        {
+          (!loading) ?
+            <>     <NavBar />
+              <ScrollToTop />
 
-     </Routes>
+              <Routes>
+                <Route exact path='/' element={<Home />}></Route>
+                <Route path='/blog' element={<Blog />}></Route>
+                <Route path='/portfolio' element={<AllPortfolio />}></Route>
+                <Route path='*' element={<NotFound />}></Route>
 
-     <Footer/></>
+              </Routes>
 
- :<Loader/>
-     }
+              <Footer /></>
+
+            : <Loader />
+        }
+      </GlobalContextProvider>
     </div>
+
   );
 }
 

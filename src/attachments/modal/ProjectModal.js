@@ -10,10 +10,10 @@ export default function ProjectModal(props) {
       {showModal ? (
         <>
           <div
-            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+            className="justify-center items-center flex overflow-hidden fixed inset-0 z-50 outline-none focus:outline-none"
           >
-            <div data-aos='zoom-in' className=" relative w-auto my-6  mx-2 overflow-auto max-w-2xl">
-              <div className="border-0  shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+            <div data-aos='zoom-in' className=" relative w-auto my-6 max-h-[95vh]  mx-2 overflow-auto max-w-2xl">
+              <div className="border-0  shadow-lg relative  flex flex-col w-full bg-white outline-none focus:outline-none">
                 <div className="flex items-start justify-end px-2 py-2 ">
                  
                   <button
