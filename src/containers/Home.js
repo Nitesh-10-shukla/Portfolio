@@ -48,10 +48,3 @@ const Home = () => {
 }
 
 export default Home;
-
-// export remove akll dub Home;
-
-
-const myArr=[2,3,4,5,6,7,7,45,4,2,7];
-
-const filterArr=myArr.filter((index,item)=>item>7)
